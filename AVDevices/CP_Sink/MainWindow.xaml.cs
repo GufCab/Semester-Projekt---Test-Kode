@@ -30,7 +30,7 @@ namespace CP_Sink
         {
             InitializeComponent();
 
-            MediaRendererDiscovery disco = new MediaRendererDiscovery();
+            var disco = new MediaRendererDiscovery();
             disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
             disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
             
@@ -40,8 +40,8 @@ namespace CP_Sink
 
         private static void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
-            //Console.WriteLine("Added Device: " + d.FriendlyName);
             MessageBox.Show("Sink detected: " + d.FriendlyName);
+
             _renderingControl = new CpRenderingControl(d.GetServices(CpRenderingControl.SERVICE_NAME)[0]);
             _connectionManagerControl = new CpConnectionManager(d.GetServices(CpConnectionManager.SERVICE_NAME)[0]);
             _avTransport = new CpAVTransport(d.GetServices(CpAVTransport.SERVICE_NAME)[0]);
@@ -57,6 +57,11 @@ namespace CP_Sink
         private void btnPlayInvoke_Click(object sender, RoutedEventArgs e)
         {
             _avTransport.Play(0, CpAVTransport.Enum_TransportPlaySpeed._1);
+        }
+
+        private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            _avTransport.Next(0);
         }
     }
 }

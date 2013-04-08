@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CPsource")]
+[assembly: AssemblyTitle("DeviceSink")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CPsource")]
+[assembly: AssemblyProduct("DeviceSink")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a36bf5b0-4d89-4d33-b473-38c1b8e96015")]
+[assembly: Guid("13addcb8-abfc-497b-b07b-6b38efec801b")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,4 +1,5 @@
 using OpenSource.UPnP;
+using System;
 
 namespace OpenSource.DeviceBuilder
 {
@@ -1458,7 +1459,16 @@ namespace OpenSource.DeviceBuilder
         public void Browse(System.String ObjectID, Enum_A_ARG_TYPE_BrowseFlag BrowseFlag, System.String Filter, System.UInt32 StartingIndex, System.UInt32 RequestedCount, System.String SortCriteria, out System.String Result, out System.UInt32 NumberReturned, out System.UInt32 TotalMatches, out System.UInt32 UpdateID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            Console.WriteLine("Hej med dig");
+
+            Result = "This is some XML";
+            NumberReturned = 1;
+            TotalMatches = 1;
+            UpdateID = 1;
+            
+            return;
         }
         /// <summary>
         /// Action: CreateObject
@@ -1537,7 +1547,10 @@ namespace OpenSource.DeviceBuilder
         public void GetSystemUpdateID(out System.UInt32 Id)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            Id = 22;
+            return;
         }
         /// <summary>
         /// Action: GetTransferProgress

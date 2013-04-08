@@ -10,15 +10,15 @@ using OpenSource.DeviceBuilder;
 namespace OpenSource.DeviceBuilder
 {
 	/// <summary>
-	/// Summary description for MediaServerDiscovery.
+	/// Summary description for MediaRendererDiscovery.
 	/// </summary>
-	class MediaServerDiscovery
+	class MediaRendererDiscovery
 	{
 		private UPnPSmartControlPoint scp;
 		private WeakEvent AddEvent = new WeakEvent();
 		private WeakEvent RemoveEvent = new WeakEvent();
 		
-		public delegate void DiscoveryHandler(MediaServerDiscovery sender, UPnPDevice dev);
+		public delegate void DiscoveryHandler(MediaRendererDiscovery sender, UPnPDevice dev);
 		public event DiscoveryHandler OnAddedDevice
 		{
 			add
@@ -43,13 +43,13 @@ namespace OpenSource.DeviceBuilder
 			}
 		}
 		
-		public MediaServerDiscovery()
+		public MediaRendererDiscovery()
 		{
 		}
 		
 		public void Start()
 		{
-			scp = new UPnPSmartControlPoint(new UPnPSmartControlPoint.DeviceHandler(OnAddSink), null ,"urn:schemas-upnp-org:device:MediaServer:1");
+			scp = new UPnPSmartControlPoint(new UPnPSmartControlPoint.DeviceHandler(OnAddSink), null ,"urn:schemas-upnp-org:device:MediaRenderer:1");
 			scp.OnRemovedDevice += new UPnPSmartControlPoint.DeviceHandler(OnRemoveSink);
 		}
 		

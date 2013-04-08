@@ -793,10 +793,7 @@ namespace OpenSource.DeviceBuilder
         public void GetProtocolInfo(out System.String Source, out System.String Sink)
         {
             //ToDo: Add Your implementation here, and remove exception
-            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
-
-            Source = "Source string";
-            Sink = "Sink string";
+            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
         }
     }
 }

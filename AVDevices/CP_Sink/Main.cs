@@ -12,22 +12,18 @@ namespace OpenSource.DeviceBuilder
 	/// </summary>
 	class SampleDeviceMain
 	{
-	    /// <summary>
-	    /// The main entry point for the application.
-	    /// </summary>
-	    
-        private static CpConnectionManager ConnectionManager;
-	    private static CpContentDirectory ContentDirectory;
-
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
 		[STAThread]
 		static void Main(string[] args)
 		{
 			System.Console.WriteLine("UPnP .NET Framework Stack");
 			System.Console.WriteLine("StackBuilder Build#Device Builder Build#1.0.4144.25068");
 			
-			MediaServerDiscovery disco = new MediaServerDiscovery();
-			disco.OnAddedDevice += new MediaServerDiscovery.DiscoveryHandler(AddSink);
-			disco.OnRemovedDevice += new MediaServerDiscovery.DiscoveryHandler(RemoveSink);
+			MediaRendererDiscovery disco = new MediaRendererDiscovery();
+			disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
+			disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
 			
 			System.Console.WriteLine("Press return to stop CP.");
 			disco.Start();
@@ -35,7 +31,7 @@ namespace OpenSource.DeviceBuilder
 			System.Console.ReadLine();
 		}
 		
-		private static void AddSink(MediaServerDiscovery sender, UPnPDevice d)
+		private static void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
 		{
 			Console.WriteLine("Added Device: " + d.FriendlyName);
 			
@@ -44,13 +40,11 @@ namespace OpenSource.DeviceBuilder
 			// of the appropriate wrapper class. This method returns an array of all services with this service type. For most purposes,
 			// there will only be one service, in which case you can use array index 0.
 			// Save a reference to this instance of the wrapper class for later use.
-
-            ConnectionManager = new CpConnectionManager(d.GetServices(CpConnectionManager.SERVICE_NAME)[0]);
-            ContentDirectory = new CpContentDirectory(d.GetServices(CpContentDirectory.SERVICE_NAME)[0]);
+			//CpRenderingControl RenderingControl = new CpRenderingControl(d.GetServices(CpRenderingControl.SERVICE_NAME)[0]);
 			
 			// To subscribe to Events, call the '_subscribe' method of the wrapper class. The only parameter is
 			// the duration of the event. A good value is 300 seconds.
-			//ConnectionManager._subscribe(300);
+			//RenderingControl._subscribe(300);
 			
 			// The wrapper class exposes all the evented state variables through events in the form 'OnStateVariable_xx', where xx is the variable name.
 			
@@ -64,7 +58,7 @@ namespace OpenSource.DeviceBuilder
 			
 			// To determine if a given service implements a particular StateVariable or Method, use the properties, 'HasStateVariableXXX' and 'HasActionXXX' where XXX is the method/variable name.
 		}
-		private static void RemoveSink(MediaServerDiscovery sender, UPnPDevice d)
+		private static void RemoveSink(MediaRendererDiscovery sender, UPnPDevice d)
 		{
 			Console.WriteLine("Removed Device: " + d.FriendlyName);
 		}

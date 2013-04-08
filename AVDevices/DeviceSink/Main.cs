@@ -23,8 +23,6 @@ namespace OpenSource.DeviceBuilder
 			System.Console.WriteLine("Device Builder Build#1.0.4144.25068");
 			SampleDevice device = new SampleDevice();
 			device.Start();
-
-            
 			System.Console.WriteLine("Press return to stop device.");
 			System.Console.ReadLine();
 			device.Stop();

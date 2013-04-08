@@ -26,13 +26,19 @@ namespace OpenSource.DeviceBuilder
 			device.ModelNumber = "0.765";
 			device.HasPresentation = false;
 			device.DeviceURN = "urn:schemas-upnp-org:device:MediaServer:1";
-			OpenSource.DeviceBuilder.DvConnectionManager ConnectionManager = new OpenSource.DeviceBuilder.DvConnectionManager();
-			ConnectionManager.External_GetCurrentConnectionIDs = new OpenSource.DeviceBuilder.DvConnectionManager.Delegate_GetCurrentConnectionIDs(ConnectionManager_GetCurrentConnectionIDs);
-			ConnectionManager.External_GetCurrentConnectionInfo = new OpenSource.DeviceBuilder.DvConnectionManager.Delegate_GetCurrentConnectionInfo(ConnectionManager_GetCurrentConnectionInfo);
-			ConnectionManager.External_GetProtocolInfo = new OpenSource.DeviceBuilder.DvConnectionManager.Delegate_GetProtocolInfo(ConnectionManager_GetProtocolInfo);
-			device.AddService(ConnectionManager);
-			OpenSource.DeviceBuilder.DvContentDirectory ContentDirectory = new OpenSource.DeviceBuilder.DvContentDirectory();
-			ContentDirectory.External_Browse = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_Browse(ContentDirectory_Browse);
+			
+            DvConnectionManager ConnectionManager = new DvConnectionManager();
+
+            ConnectionManager.External_GetCurrentConnectionIDs = ConnectionManager_GetCurrentConnectionIDs;
+		    ConnectionManager.External_GetCurrentConnectionInfo = ConnectionManager_GetCurrentConnectionInfo;
+			//ConnectionManager.External_GetProtocolInfo = ConnectionManager_GetProtocolInfo;
+			
+            device.AddService(ConnectionManager);
+			
+
+            DvContentDirectory ContentDirectory = new DvContentDirectory();
+			
+            ContentDirectory.External_Browse = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_Browse(ContentDirectory_Browse);
 			ContentDirectory.External_CreateObject = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_CreateObject(ContentDirectory_CreateObject);
 			ContentDirectory.External_CreateReference = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_CreateReference(ContentDirectory_CreateReference);
 			ContentDirectory.External_DeleteResource = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_DeleteResource(ContentDirectory_DeleteResource);
@@ -46,7 +52,8 @@ namespace OpenSource.DeviceBuilder
 			ContentDirectory.External_Search = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_Search(ContentDirectory_Search);
 			ContentDirectory.External_StopTransferResource = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_StopTransferResource(ContentDirectory_StopTransferResource);
 			ContentDirectory.External_UpdateObject = new OpenSource.DeviceBuilder.DvContentDirectory.Delegate_UpdateObject(ContentDirectory_UpdateObject);
-			device.AddService(ContentDirectory);
+			
+            device.AddService(ContentDirectory);
 			
 			// Setting the initial value of evented variables
 			ConnectionManager.Evented_SourceProtocolInfo = "Sample String";
@@ -71,6 +78,8 @@ namespace OpenSource.DeviceBuilder
 		{
 			ConnectionIDs = "Sample String";
 			Console.WriteLine("ConnectionManager_GetCurrentConnectionIDs(" + ")");
+
+		    
 		}
 		
 		public void ConnectionManager_GetCurrentConnectionInfo(System.Int32 ConnectionID, out System.Int32 RcsID, out System.Int32 AVTransportID, out System.String ProtocolInfo, out System.String PeerConnectionManager, out System.Int32 PeerConnectionID, out DvConnectionManager.Enum_A_ARG_TYPE_Direction Direction, out DvConnectionManager.Enum_A_ARG_TYPE_ConnectionStatus Status)
@@ -94,10 +103,10 @@ namespace OpenSource.DeviceBuilder
 		
 		public void ContentDirectory_Browse(System.String ObjectID, DvContentDirectory.Enum_A_ARG_TYPE_BrowseFlag BrowseFlag, System.String Filter, System.UInt32 StartingIndex, System.UInt32 RequestedCount, System.String SortCriteria, out System.String Result, out System.UInt32 NumberReturned, out System.UInt32 TotalMatches, out System.UInt32 UpdateID)
 		{
-			Result = "Sample String";
-			NumberReturned = 0;
-			TotalMatches = 0;
-			UpdateID = 0;
+			Result = "Noget nyt";
+			NumberReturned = 1;
+			TotalMatches = 2;
+			UpdateID = 3;
 			Console.WriteLine("ContentDirectory_Browse(" + ObjectID.ToString() + BrowseFlag.ToString() + Filter.ToString() + StartingIndex.ToString() + RequestedCount.ToString() + SortCriteria.ToString() + ")");
 		}
 		

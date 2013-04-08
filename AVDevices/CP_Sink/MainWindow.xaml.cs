@@ -129,5 +129,29 @@ namespace CP_Sink
                 MessageBox.Show(m.Message);
             }
         }
+
+        private void btnPauseInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.Pause(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
+        private void btnStopInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.Stop(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
     }
 }

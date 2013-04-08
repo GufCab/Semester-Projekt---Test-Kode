@@ -12,9 +12,13 @@ namespace OpenSource.DeviceBuilder
 	/// </summary>
 	class SampleDeviceMain
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
+	    /// <summary>
+	    /// The main entry point for the application.
+	    /// </summary>
+	    
+        
+        private static CpSwitchPower sw;
+
 		[STAThread]
 		static void Main(string[] args)
 		{
@@ -28,20 +32,37 @@ namespace OpenSource.DeviceBuilder
 			System.Console.WriteLine("Press return to stop CP.");
 			disco.Start();
 			
-			System.Console.ReadLine();
+			string x = "";
+
+		    while (x != "q")
+		    {
+                x  = System.Console.ReadLine();
+		        if (x == "on")
+		            sw.SetTarget(true);
+		        else if (x == "off")
+		            sw.SetTarget(false);
+		    }
 		}
 		
 		private static void AddSink(DimmableLightDiscovery sender, UPnPDevice d)
 		{
 			Console.WriteLine("Added Device: " + d.FriendlyName);
 			
-			// To interace with a service, instantiate the appropriate wrapper class on the appropriate service
+			// To interface with a service, instantiate the appropriate wrapper class on the appropriate service
 			// Traverse the device heirarchy to the correct device, and invoke 'GetServices', passing in the static field 'SERVICE_NAME'
 			// of the appropriate wrapper class. This method returns an array of all services with this service type. For most purposes,
 			// there will only be one service, in which case you can use array index 0.
 			// Save a reference to this instance of the wrapper class for later use.
-			//CpDimming Dimming = new CpDimming(d.GetServices(CpDimming.SERVICE_NAME)[0]);
 			
+            
+            CpDimming Dimming = new CpDimming(d.GetServices(CpDimming.SERVICE_NAME)[0]);
+            
+            sw = new CpSwitchPower(d.GetServices(CpSwitchPower.SERVICE_NAME)[0]);
+			
+            
+
+
+
 			// To subscribe to Events, call the '_subscribe' method of the wrapper class. The only parameter is
 			// the duration of the event. A good value is 300 seconds.
 			//Dimming._subscribe(300);

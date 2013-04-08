@@ -1,0 +1,6 @@
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\bin\Debug\SampleDevice.exe
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\bin\Debug\SampleDevice.pdb
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\bin\Debug\UPnP.dll
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\obj\Debug\SampleDevice.csprojResolveAssemblyReference.cache
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\obj\Debug\SampleDevice.exe
+C:\Repository\Semester-Projekt---Test-Kode\CP_Light\obj\Debug\SampleDevice.pdb

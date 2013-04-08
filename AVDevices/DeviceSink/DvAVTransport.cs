@@ -1,3 +1,4 @@
+using System;
 using OpenSource.UPnP;
 
 namespace OpenSource.DeviceBuilder
@@ -3512,6 +3513,7 @@ namespace OpenSource.DeviceBuilder
             //ToDo: Add Your implementation here, and remove exception
             throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
         }
+
         /// <summary>
         /// Action: Play
         /// </summary>
@@ -3520,7 +3522,18 @@ namespace OpenSource.DeviceBuilder
         public void Play(System.UInt32 InstanceID, Enum_TransportPlaySpeed Speed)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            //Shoutout:
+            Console.WriteLine("Invoked Play");
+
+            //Implementation:
+            A_ARG_TYPE_InstanceID = InstanceID;
+            TransportPlaySpeed = Speed;
+
+            //Received Information:
+            Console.WriteLine("Received InstanceID: " + A_ARG_TYPE_InstanceID);
+            Console.WriteLine("Received Speed: " + TransportPlaySpeed);
         }
         /// <summary>
         /// Action: Previous
@@ -3529,7 +3542,10 @@ namespace OpenSource.DeviceBuilder
         public void Previous(System.UInt32 InstanceID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            //Shoutout:
+            Console.WriteLine("Invoked Previous");
         }
         /// <summary>
         /// Action: Seek
@@ -3551,8 +3567,22 @@ namespace OpenSource.DeviceBuilder
         public void SetAVTransportURI(System.UInt32 InstanceID, System.String CurrentURI, System.String CurrentURIMetaData)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            //Shoutout:
+            Console.WriteLine("Invoked SetAVTransportURI");
+
+            //Implement some code:
+            A_ARG_TYPE_InstanceID = InstanceID;
+            AVTransportURI = CurrentURI;
+            AVTransportURIMetaData = CurrentURIMetaData;
+
+            //Output what's received:
+            Console.WriteLine("Received URI: " + AVTransportURI);
+            Console.WriteLine("Received ID: " + A_ARG_TYPE_InstanceID);
+            Console.WriteLine("Reveived Meta data: " + AVTransportURIMetaData);
         }
+
         /// <summary>
         /// Action: SetPlayMode
         /// </summary>
@@ -3570,7 +3600,10 @@ namespace OpenSource.DeviceBuilder
         public void Stop(System.UInt32 InstanceID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            //Shoutout:
+            Console.WriteLine("Invoked Stop");
         }
     }
 }

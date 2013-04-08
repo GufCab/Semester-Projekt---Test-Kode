@@ -15,8 +15,9 @@ namespace OpenSource.DeviceBuilder
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
-		[STAThread]
-		static void Main(string[] args)
+		//[STAThread]
+		//static void Main(string[] args)
+        void function()
 		{
 			System.Console.WriteLine("UPnP .NET Framework Stack");
 			System.Console.WriteLine("StackBuilder Build#Device Builder Build#1.0.4144.25068");

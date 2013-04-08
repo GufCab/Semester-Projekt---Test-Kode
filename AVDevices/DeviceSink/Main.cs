@@ -2,6 +2,7 @@
 // Device Builder Build#1.0.4144.25068
 
 using System;
+using DeviceSink;
 using OpenSource.UPnP;
 using OpenSource.DeviceBuilder;
 
@@ -21,13 +22,12 @@ namespace OpenSource.DeviceBuilder
 			// Starting UPnP Device
 			System.Console.WriteLine("UPnP .NET Framework Stack");
 			System.Console.WriteLine("Device Builder Build#1.0.4144.25068");
-			SampleDevice device = new SampleDevice();
+			SinkDevice device = new SinkDevice();
 			device.Start();
 			System.Console.WriteLine("Press return to stop device.");
 			System.Console.ReadLine();
 			device.Stop();
 		}
-		
 	}
 }
 

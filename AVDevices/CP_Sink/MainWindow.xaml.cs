@@ -25,43 +25,109 @@ namespace CP_Sink
         private static CpRenderingControl _renderingControl;
         private static CpConnectionManager _connectionManagerControl;
         private static CpAVTransport _avTransport;
+        //moved outside scope so it doesn't die
+        private MediaRendererDiscovery disco;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            var disco = new MediaRendererDiscovery();
+            disco = new MediaRendererDiscovery();
             disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
             disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
             
             disco.Start();
-            
         }
 
         private static void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
             MessageBox.Show("Sink detected: " + d.FriendlyName);
 
-            _renderingControl = new CpRenderingControl(d.GetServices(CpRenderingControl.SERVICE_NAME)[0]);
-            _connectionManagerControl = new CpConnectionManager(d.GetServices(CpConnectionManager.SERVICE_NAME)[0]);
-            _avTransport = new CpAVTransport(d.GetServices(CpAVTransport.SERVICE_NAME)[0]);
-            
+            try
+            {
+                _avTransport = new CpAVTransport(d.GetServices(CpAVTransport.SERVICE_NAME)[0]);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show("Couldn't initialize AVTransport: " + m.Message);
+            }
+
+            try
+            {
+                _connectionManagerControl = new CpConnectionManager(d.GetServices(CpConnectionManager.SERVICE_NAME)[0]);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show("Couldn't initialize ConnectionManager: " + m.Message);
+            }
+
+            try
+            {
+                _renderingControl = new CpRenderingControl(d.GetServices(CpRenderingControl.SERVICE_NAME)[0]);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show("Couldn't initialize RenderingControl: " + m.Message);
+            }
+
+            //MessageBox.Show(d.DeviceURN);
+
             //RenderingControl._subscribe(300);
         }
 
         private static void RemoveSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
             Console.WriteLine("Removed Device: " + d.FriendlyName);
+            
         }
 
         private void btnPlayInvoke_Click(object sender, RoutedEventArgs e)
         {
-            _avTransport.Play(0, CpAVTransport.Enum_TransportPlaySpeed._1);
+            try
+            {
+                _avTransport.Play(0, CpAVTransport.Enum_TransportPlaySpeed._1);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+                
+            }
         }
 
         private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
         {
-            _avTransport.Next(0);
+            try
+            {
+                _avTransport.Next(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
+        private void btnPreviousInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.Previous(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
+        private void btnSetTransportURI_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.SetAVTransportURI(0, "rtsp://192.168.1.100/Jump.mp3", "SomeXML");
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
         }
     }
 }

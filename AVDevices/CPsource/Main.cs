@@ -16,8 +16,8 @@ namespace OpenSource.DeviceBuilder
 	    /// The main entry point for the application.
 	    /// </summary>
 	    
-        
-        private static CpSwitchPower sw;
+        private static CpConnectionManager ConnectionManager;
+	    private static CpContentDirectory ContentDirectory;
 
 		[STAThread]
 		static void Main(string[] args)
@@ -25,61 +25,32 @@ namespace OpenSource.DeviceBuilder
 			System.Console.WriteLine("UPnP .NET Framework Stack");
 			System.Console.WriteLine("StackBuilder Build#Device Builder Build#1.0.4144.25068");
 			
-			DimmableLightDiscovery disco = new DimmableLightDiscovery();
-			disco.OnAddedDevice += new DimmableLightDiscovery.DiscoveryHandler(AddSink);
-			disco.OnRemovedDevice += new DimmableLightDiscovery.DiscoveryHandler(RemoveSink);
+			MediaServerDiscovery disco = new MediaServerDiscovery();
+			disco.OnAddedDevice += new MediaServerDiscovery.DiscoveryHandler(AddSink);
+			disco.OnRemovedDevice += new MediaServerDiscovery.DiscoveryHandler(RemoveSink);
 			
 			System.Console.WriteLine("Press return to stop CP.");
 			disco.Start();
 			
-			string x = "";
-		    bool bo = new bool();
-		    object obj = new object();
-
-		    //CpSwitchPower.Delegate_OnResult_GetStatus del = CpSwitchPower.Delegate_OnResult_GetStatus();
-
-		    while (x != "q")
-		    {
-                x  = System.Console.ReadLine();
-                if (x == "on")
-                    sw.SetTarget(true);
-                else if (x == "off")
-                    sw.SetTarget(false);
-                else if (x == "check")
-                {
-                    sw.Sync_GetTarget(out bo);
-                    Console.WriteLine(bo);
-                    
-                }
-                    
-
-
-
-		    }
+			System.Console.ReadLine();
 		}
 		
-		private static void AddSink(DimmableLightDiscovery sender, UPnPDevice d)
+		private static void AddSink(MediaServerDiscovery sender, UPnPDevice d)
 		{
 			Console.WriteLine("Added Device: " + d.FriendlyName);
 			
-			// To interface with a service, instantiate the appropriate wrapper class on the appropriate service
+			// To interace with a service, instantiate the appropriate wrapper class on the appropriate service
 			// Traverse the device heirarchy to the correct device, and invoke 'GetServices', passing in the static field 'SERVICE_NAME'
 			// of the appropriate wrapper class. This method returns an array of all services with this service type. For most purposes,
 			// there will only be one service, in which case you can use array index 0.
 			// Save a reference to this instance of the wrapper class for later use.
+
+            ConnectionManager = new CpConnectionManager(d.GetServices(CpConnectionManager.SERVICE_NAME)[0]);
+            ContentDirectory = new CpContentDirectory(d.GetServices(CpContentDirectory.SERVICE_NAME)[0]);
 			
-            
-            CpDimming Dimming = new CpDimming(d.GetServices(CpDimming.SERVICE_NAME)[0]);
-            
-            sw = new CpSwitchPower(d.GetServices(CpSwitchPower.SERVICE_NAME)[0]);
-			
-            
-
-
-
 			// To subscribe to Events, call the '_subscribe' method of the wrapper class. The only parameter is
 			// the duration of the event. A good value is 300 seconds.
-			//Dimming._subscribe(300);
+			//ConnectionManager._subscribe(300);
 			
 			// The wrapper class exposes all the evented state variables through events in the form 'OnStateVariable_xx', where xx is the variable name.
 			
@@ -93,7 +64,7 @@ namespace OpenSource.DeviceBuilder
 			
 			// To determine if a given service implements a particular StateVariable or Method, use the properties, 'HasStateVariableXXX' and 'HasActionXXX' where XXX is the method/variable name.
 		}
-		private static void RemoveSink(DimmableLightDiscovery sender, UPnPDevice d)
+		private static void RemoveSink(MediaServerDiscovery sender, UPnPDevice d)
 		{
 			Console.WriteLine("Removed Device: " + d.FriendlyName);
 		}

@@ -23,7 +23,8 @@ namespace OpenSource.DeviceBuilder
 			System.Console.WriteLine("UPnP .NET Framework Stack");
 			System.Console.WriteLine("Device Builder Build#1.0.4144.25068");
 			SinkDevice device = new SinkDevice();
-			device.Start();
+			
+            device.Start();
 			System.Console.WriteLine("Press return to stop device.");
 			System.Console.ReadLine();
 			device.Stop();

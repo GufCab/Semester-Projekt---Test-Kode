@@ -33,14 +33,28 @@ namespace OpenSource.DeviceBuilder
 			disco.Start();
 			
 			string x = "";
+		    Boolean bo;
+		    object obj = new object();
+
+		    CpSwitchPower.Delegate_OnResult_GetStatus del;
 
 		    while (x != "q")
 		    {
                 x  = System.Console.ReadLine();
-		        if (x == "on")
-		            sw.SetTarget(true);
-		        else if (x == "off")
-		            sw.SetTarget(false);
+                if (x == "on")
+                    sw.SetTarget(true);
+                else if (x == "off")
+                    sw.SetTarget(false);
+                else if (x == "check")
+                {
+                    sw.GetTarget(obj, null);
+                    Console.WriteLine((Boolean)obj);
+                    
+                }
+                    
+
+
+
 		    }
 		}
 		

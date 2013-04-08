@@ -3502,7 +3502,9 @@ namespace OpenSource.DeviceBuilder
         public void Next(System.UInt32 InstanceID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            Console.WriteLine("Invoked Next");
         }
         /// <summary>
         /// Action: Pause

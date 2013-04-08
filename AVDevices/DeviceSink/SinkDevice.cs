@@ -23,10 +23,13 @@ namespace DeviceSink
             
             //Create stacks
             DvAVTransport AVTransport = new DvAVTransport();
+            DvConnectionManager connectionManager = new DvConnectionManager();
+            DvRenderingControl renderingControl = new DvRenderingControl();
 
-
-            //Add stack to device (and network)
+            //Add stacks to device (and network visibility)
             device.AddService(AVTransport);
+            device.AddService(connectionManager);
+            device.AddService(renderingControl);
         }
 
         public void Start()

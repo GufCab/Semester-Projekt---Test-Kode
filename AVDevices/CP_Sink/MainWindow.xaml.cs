@@ -36,16 +36,20 @@ namespace CP_Sink
             disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
             disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
             
+            
+            
             disco.Start();
         }
 
-        private static void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
+        private void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
             MessageBox.Show("Sink detected: " + d.FriendlyName);
 
             try
             {
                 _avTransport = new CpAVTransport(d.GetServices(CpAVTransport.SERVICE_NAME)[0]);
+                
+                _avTransport.OnStateVariable_LastChange += new CpAVTransport.StateVariableModifiedHandler_LastChange(Eventer);
             }
             catch (Exception m)
             {
@@ -73,7 +77,10 @@ namespace CP_Sink
             //MessageBox.Show(d.DeviceURN);
 
             //RenderingControl._subscribe(300);
+            
         }
+
+
 
         private static void RemoveSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
@@ -96,6 +103,8 @@ namespace CP_Sink
 
         private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
         {
+            //lbxMsgOut.Items.Add("This is some string");
+            /*
             try
             {
                 _avTransport.Next(0);
@@ -104,6 +113,7 @@ namespace CP_Sink
             {
                 MessageBox.Show(m.Message);
             }
+             */
         }
 
         private void btnPreviousInvoke_Click(object sender, RoutedEventArgs e)
@@ -153,5 +163,16 @@ namespace CP_Sink
                 MessageBox.Show(m.Message);
             }
         }
+
+        private void btnSubscribe_Click(object sender, RoutedEventArgs e)
+        {
+            _avTransport._subscribe(300);
+        }
+        
+        public void Eventer(CpAVTransport sender, string d)
+        {
+            MessageBox.Show("Got a new event: " + d);
+            lbxMsgOut.Items.Add("New Event: " + d);
+            }
     }
 }

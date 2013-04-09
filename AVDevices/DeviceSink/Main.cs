@@ -25,6 +25,7 @@ namespace OpenSource.DeviceBuilder
 			SinkDevice device = new SinkDevice();
 			
             device.Start();
+
 			System.Console.WriteLine("Press return to stop device.");
 			System.Console.ReadLine();
 			device.Stop();

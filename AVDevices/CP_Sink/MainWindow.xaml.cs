@@ -25,7 +25,7 @@ namespace CP_Sink
         private static CpRenderingControl _renderingControl;
         private static CpConnectionManager _connectionManagerControl;
         private static CpAVTransport _avTransport;
-        //moved outside scope so it doesn't die
+        //moved outside scope to keep it alive
         private MediaRendererDiscovery disco;
 
         public MainWindow()
@@ -35,8 +35,6 @@ namespace CP_Sink
             disco = new MediaRendererDiscovery();
             disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
             disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
-            
-            
             
             disco.Start();
         }
@@ -85,7 +83,6 @@ namespace CP_Sink
         private static void RemoveSink(MediaRendererDiscovery sender, UPnPDevice d)
         {
             Console.WriteLine("Removed Device: " + d.FriendlyName);
-            
         }
 
         private void btnPlayInvoke_Click(object sender, RoutedEventArgs e)
@@ -98,45 +95,6 @@ namespace CP_Sink
             {
                 MessageBox.Show(m.Message);
                 
-            }
-        }
-
-        private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
-        {
-            //lbxMsgOut.Items.Add("This is some string");
-            /*
-            try
-            {
-                _avTransport.Next(0);
-            }
-            catch (Exception m)
-            {
-                MessageBox.Show(m.Message);
-            }
-             */
-        }
-
-        private void btnPreviousInvoke_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                _avTransport.Previous(0);
-            }
-            catch (Exception m)
-            {
-                MessageBox.Show(m.Message);
-            }
-        }
-
-        private void btnSetTransportURI_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                _avTransport.SetAVTransportURI(0, "rtsp://192.168.1.100/Jump.mp3", "SomeXML");
-            }
-            catch (Exception m)
-            {
-                MessageBox.Show(m.Message);
             }
         }
 
@@ -164,6 +122,57 @@ namespace CP_Sink
             }
         }
 
+        private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            //lbxMsgOut.Items.Add("This is some string");
+            
+            try
+            {
+                _avTransport.Next(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+             
+        }
+
+        private void btnPreviousInvoke_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.Previous(0);
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
+        private void btnVolume_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.SetAVTransportURI(0, "rtsp://192.168.1.100/Jump.mp3", "SomeXML");
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
+        private void btnSetTransportURI_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _avTransport.SetAVTransportURI(0, "rtsp://192.168.1.100/Jump.mp3", "SomeXML");
+            }
+            catch (Exception m)
+            {
+                MessageBox.Show(m.Message);
+            }
+        }
+
         private void btnSubscribe_Click(object sender, RoutedEventArgs e)
         {
             _avTransport._subscribe(300);
@@ -171,8 +180,8 @@ namespace CP_Sink
         
         public void Eventer(CpAVTransport sender, string d)
         {
-            MessageBox.Show("Got a new event: " + d);
-            //lbxMsgOut.Items.Add("New Event: " + d);
+            //MessageBox.Show("Got a new event: " + d);
+            lbxMsgOut.Items.Add("New Event: " + d);
         }
     }
 }

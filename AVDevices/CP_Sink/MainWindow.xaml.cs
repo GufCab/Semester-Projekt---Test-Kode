@@ -172,7 +172,7 @@ namespace CP_Sink
         public void Eventer(CpAVTransport sender, string d)
         {
             MessageBox.Show("Got a new event: " + d);
-            lbxMsgOut.Items.Add("New Event: " + d);
-            }
+            //lbxMsgOut.Items.Add("New Event: " + d);
+        }
     }
 }

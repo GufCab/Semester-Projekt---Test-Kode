@@ -1,0 +1,191 @@
+diff --git a/AVDevices/CP_Sink/MainWindow.xaml b/AVDevices/CP_Sink/MainWindow.xaml
+index a3cee5c..149f7cf 100644
+--- a/AVDevices/CP_Sink/MainWindow.xaml
++++ b/AVDevices/CP_Sink/MainWindow.xaml
+@@ -8,49 +8,26 @@
+             <ColumnDefinition Width="Auto"/>
+             <ColumnDefinition/>
+         </Grid.ColumnDefinitions>
+-        
+         <Grid.RowDefinitions>
+             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="Auto"/>
+-            <RowDefinition Height="Auto"/>
+-            <RowDefinition Height="Auto"/>
+             <RowDefinition/>
+         </Grid.RowDefinitions>
+-        
+         <Label Content="Play: "/>
+-        <Label Grid.Row="1" Content="Pause:"/>
+-        <Label Grid.Row="2" Content="Stop:"/>
+-        <Label Grid.Row="3" Content="Next:"/>
+-        <Label Grid.Row="4" Content="Previous:"/>
+-        <Label Grid.Row="5" Content="SetTransportURI:"/>
+-        <Label Grid.Row="6" Content="Subscribe:"/>
+-        <Label Grid.Row="7" Content="Message output:"/>
+-        
+-        
++        <Label Grid.Row="1" Content="Next:"/>
++        <Label Grid.Row="2" Content="Previous:"/>
++        <Label Grid.Row="3" Content="SetTransportURI:"></Label>
+         <TextBox Grid.Column="1" MinWidth="70" Margin="3, 3"/>
+         <TextBox Grid.Column="1" Grid.Row="1" Margin="3, 3"/>
+         <TextBox Grid.Column="1" Grid.Row="2" Margin="3, 3"/>
+         <TextBox Grid.Column="1" Grid.Row="3" Margin="3, 3"/>
+-        <TextBox Grid.Column="1" Grid.Row="4" Margin="3, 3"/>
+-        <TextBox Grid.Column="1" Grid.Row="5" Margin="3, 3"/>
+-        <TextBox Grid.Column="1" Grid.Row="6" Margin="3, 3"/>
+-        <!-- Insert new TextBox's here -->
+-        <TextBox Grid.Column="1" Grid.Row ="7" Grid.ColumnSpan="2" Margin="3" Name="lbxMsgOut" />
+-        
++        <TextBox Grid.Row="4" Name="txbException"/>
+         <Button Grid.Column="2" MinWidth="100" Name="btnPlayInvoke" Content="Invoke" Margin="3, 3" Click="btnPlayInvoke_Click"/>
+-        <Button Grid.Column="2" Grid.Row="1" MinWidth="100" Name="btnPauseInvoke" Content="Invoke" Margin="3, 3" Click="btnPauseInvoke_Click"/>
+-        <Button Grid.Column="2" Grid.Row="2" MinWidth="100" Name="btnStopInvoke" Content="Invoke" Margin="3, 3" Click="btnStopInvoke_Click"/>
+-        <Button Grid.Column="2" Grid.Row="3" Name="btnNextInvoke" Content="Invoke" Margin="3, 3" Click="btnNextInvoke_Click"/>
+-        <Button Grid.Column="2" Grid.Row="4" Name="btnPreviousInvoke" Content="Invoke" Margin="3, 3" Click="btnPreviousInvoke_Click"/>
+-        <Button Grid.Column="2" Grid.Row="5" Name="btnSetTransportURI" Content="Invoke" Margin="3" Click="btnSetTransportURI_Click"/>
+-        <Button Grid.Column="2" Grid.Row="6" Name="btnSubscribe" Content="Invoke" Margin="3,0,3,3" Click="btnSubscribe_Click" Height="22" VerticalAlignment="Bottom"/>
+-        <!-- Placeholder Grid.Column="2" Grid.Row="7" -->
+-        
+-        
+-
+-        
++        <Button Grid.Column="2" Grid.Row="1" Name="btnNextInvoke" Content="Invoke" Margin="3, 3" Click="btnNextInvoke_Click"/>
++        <Button Grid.Column="2" Grid.Row="2" Name="btnPreviousInvoke" Content="Invoke" Margin="3, 3" Click="btnPreviousInvoke_Click"/>
++        <Button Grid.Column="2" Grid.Row="3" Name="btnSetTransportURI" Content="Invoke" Margin="3" Click="btnSetTransportURI_Click"/>
+     </Grid>
+ </Window>
+diff --git a/AVDevices/CP_Sink/MainWindow.xaml.cs b/AVDevices/CP_Sink/MainWindow.xaml.cs
+index 02242c8..881e610 100644
+--- a/AVDevices/CP_Sink/MainWindow.xaml.cs
++++ b/AVDevices/CP_Sink/MainWindow.xaml.cs
+@@ -36,20 +36,16 @@ public MainWindow()
+             disco.OnAddedDevice += new MediaRendererDiscovery.DiscoveryHandler(AddSink);
+             disco.OnRemovedDevice += new MediaRendererDiscovery.DiscoveryHandler(RemoveSink);
+             
+-            
+-            
+             disco.Start();
+         }
+ 
+-        private void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
++        private static void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
+         {
+             MessageBox.Show("Sink detected: " + d.FriendlyName);
+ 
+             try
+             {
+                 _avTransport = new CpAVTransport(d.GetServices(CpAVTransport.SERVICE_NAME)[0]);
+-                
+-                _avTransport.OnStateVariable_LastChange += new CpAVTransport.StateVariableModifiedHandler_LastChange(Eventer);
+             }
+             catch (Exception m)
+             {
+@@ -77,11 +73,8 @@ private void AddSink(MediaRendererDiscovery sender, UPnPDevice d)
+             //MessageBox.Show(d.DeviceURN);
+ 
+             //RenderingControl._subscribe(300);
+-            
+         }
+ 
+-
+-
+         private static void RemoveSink(MediaRendererDiscovery sender, UPnPDevice d)
+         {
+             Console.WriteLine("Removed Device: " + d.FriendlyName);
+@@ -103,8 +96,6 @@ private void btnPlayInvoke_Click(object sender, RoutedEventArgs e)
+ 
+         private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
+         {
+-            //lbxMsgOut.Items.Add("This is some string");
+-            /*
+             try
+             {
+                 _avTransport.Next(0);
+@@ -113,7 +104,6 @@ private void btnNextInvoke_Click(object sender, RoutedEventArgs e)
+             {
+                 MessageBox.Show(m.Message);
+             }
+-             */
+         }
+ 
+         private void btnPreviousInvoke_Click(object sender, RoutedEventArgs e)
+@@ -139,40 +129,5 @@ private void btnSetTransportURI_Click(object sender, RoutedEventArgs e)
+                 MessageBox.Show(m.Message);
+             }
+         }
+-
+-        private void btnPauseInvoke_Click(object sender, RoutedEventArgs e)
+-        {
+-            try
+-            {
+-                _avTransport.Pause(0);
+-            }
+-            catch (Exception m)
+-            {
+-                MessageBox.Show(m.Message);
+-            }
+-        }
+-
+-        private void btnStopInvoke_Click(object sender, RoutedEventArgs e)
+-        {
+-            try
+-            {
+-                _avTransport.Stop(0);
+-            }
+-            catch (Exception m)
+-            {
+-                MessageBox.Show(m.Message);
+-            }
+-        }
+-
+-        private void btnSubscribe_Click(object sender, RoutedEventArgs e)
+-        {
+-            _avTransport._subscribe(300);
+-        }
+-        
+-        public void Eventer(CpAVTransport sender, string d)
+-        {
+-            MessageBox.Show("Got a new event: " + d);
+-            //lbxMsgOut.Items.Add("New Event: " + d);
+-        }
+     }
+ }
+diff --git a/AVDevices/DeviceSink/DvAVTransport.cs b/AVDevices/DeviceSink/DvAVTransport.cs
+index 883905f..95a2a9e 100644
+--- a/AVDevices/DeviceSink/DvAVTransport.cs
++++ b/AVDevices/DeviceSink/DvAVTransport.cs
+@@ -3546,8 +3546,6 @@ public void Previous(System.UInt32 InstanceID)
+             //ToDo: Add Your implementation here, and remove exception
+             //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+ 
+-            Evented_LastChange = "New Previous";
+-
+             //Shoutout:
+             Console.WriteLine("Invoked Previous");
+         }
+@@ -3581,8 +3579,6 @@ public void SetAVTransportURI(System.UInt32 InstanceID, System.String CurrentURI
+             AVTransportURI = CurrentURI;
+             AVTransportURIMetaData = CurrentURIMetaData;
+ 
+-            Evented_LastChange = "NewURI";
+-
+             //Output what's received:
+             Console.WriteLine("Received URI: " + AVTransportURI);
+             Console.WriteLine("Received ID: " + A_ARG_TYPE_InstanceID);
+diff --git a/AVDevices/DeviceSink/Main.cs b/AVDevices/DeviceSink/Main.cs
+index 2e8890c..c5cb659 100644
+--- a/AVDevices/DeviceSink/Main.cs
++++ b/AVDevices/DeviceSink/Main.cs
+@@ -25,7 +25,6 @@ static void Main(string[] args)
+ 			SinkDevice device = new SinkDevice();
+ 			
+             device.Start();
+-
+ 			System.Console.WriteLine("Press return to stop device.");
+ 			System.Console.ReadLine();
+ 			device.Stop();

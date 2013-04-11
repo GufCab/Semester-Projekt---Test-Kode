@@ -3502,7 +3502,9 @@ namespace OpenSource.DeviceBuilder
         public void Next(System.UInt32 InstanceID)
         {
             //ToDo: Add Your implementation here, and remove exception
-            throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+            //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
+
+            Console.WriteLine("Invoked Next");
         }
         /// <summary>
         /// Action: Pause
@@ -3544,6 +3546,8 @@ namespace OpenSource.DeviceBuilder
             //ToDo: Add Your implementation here, and remove exception
             //throw(new UPnPCustomException(800,"This method has not been completely implemented..."));
 
+            Evented_LastChange = "New Previous";
+
             //Shoutout:
             Console.WriteLine("Invoked Previous");
         }
@@ -3576,6 +3580,8 @@ namespace OpenSource.DeviceBuilder
             A_ARG_TYPE_InstanceID = InstanceID;
             AVTransportURI = CurrentURI;
             AVTransportURIMetaData = CurrentURIMetaData;
+
+            Evented_LastChange = "NewURI";
 
             //Output what's received:
             Console.WriteLine("Received URI: " + AVTransportURI);

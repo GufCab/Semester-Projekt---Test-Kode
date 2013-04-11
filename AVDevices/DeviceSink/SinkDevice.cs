@@ -30,6 +30,8 @@ namespace DeviceSink
             device.AddService(AVTransport);
             device.AddService(connectionManager);
             device.AddService(renderingControl);
+
+            AVTransport.Evented_LastChange = "Sample string";
         }
 
         public void Start()

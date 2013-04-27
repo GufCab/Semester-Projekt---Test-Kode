@@ -9,21 +9,26 @@ using System.Xml;
 
 namespace XMLReader
 {
-    class XMLReader
+    public class XMLReader
     {
-        string reader(string xml)
+        public string reader(string xml)
         {
-            //XDocument xmlDoc = new XDocument(new StringReader(xml));
-
-            //var title = xmlDoc.Element(ns + "DIDL-Lite").Elements(ns + "container");
-            //var x = xmlDoc.Element(ns + "DIDL-Lite").Elements(ns + "container");
-
-            //Output.Text = x.Attributes("[id]").ToString();
-
-            XmlDocument xmlDocument = new XmlDocument();
+            var xmlDocument = new XmlDocument();
+            //xmlDocument.Load("SomeXML.xml");
             xmlDocument.LoadXml(xml);
-            XmlNodeList nodeList = xmlDocument.SelectNodes()
 
+            XmlNodeList nodeList = xmlDocument.GetElementsByTagName("container");
+
+            foreach (XmlElement elm in nodeList)
+            {
+                Console.Write(elm.GetAttribute("id") + ": ");
+                var y = elm.InnerXml;
+                XmlNodeList titleList = elm.GetElementsByTagName("dc:title");
+                
+                Console.WriteLine(titleList[0].InnerText);
+            }
+
+            return xml;
         }
     }
 }

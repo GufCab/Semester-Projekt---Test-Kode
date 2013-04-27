@@ -1,0 +1,22 @@
+﻿<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sec="http://www.sec.co.kr/">
+    <container id="music" parentID="0" restricted="1" searchable="0">
+        <dc:title>Music</dc:title>
+        <upnp:class>object.container</upnp:class>
+    </container>
+    <container id="/external/video/media" parentID="0" restricted="1" searchable="0">
+        <dc:title>Video</dc:title>
+        <upnp:class>object.container</upnp:class>
+    </container>
+    <container id="/external/images/media" parentID="0" restricted="1" searchable="0">
+                    <dc:title>Images</dc:title><upnp:class>object.container</upnp:class>
+                </container>
+    <container id="/storage/sdcard0" parentID="0" restricted="1" searchable="0">
+        <dc:title>Filesystem</dc:title>
+        <upnp:class>object.container.storageFolder</upnp:class>
+    </container>
+    <container id="saved_playlists" parentID="0" restricted="1" searchable="0"><dc:title>Saved playlists</dc:title><upnp:class>object.container</upnp:class></container>
+    <container id="gmusic" parentID="0" restricted="1" searchable="0">
+        <dc:title>Google Music</dc:title>
+        <upnp:class>object.container</upnp:class>
+    </container>
+</DIDL-Lite>

@@ -1,0 +1,9 @@
+XMLWriter()
+- får et track og laver det om til xml
+
+XMLReader PC:
+- læser det xml den modtager fra browse()
+- skal læse url
+
+XMLReader Pi:
+- 

@@ -11,24 +11,66 @@ namespace XMLReader
 {
     public class XMLReader
     {
-        public string reader(string xml)
+        public List<Result> containerReader(string xml)
         {
             var xmlDocument = new XmlDocument();
             //xmlDocument.Load("SomeXML.xml");
             xmlDocument.LoadXml(xml);
 
+            var tmpList = new List<Result>();
+            
+
             XmlNodeList nodeList = xmlDocument.GetElementsByTagName("container");
 
             foreach (XmlElement elm in nodeList)
             {
-                Console.Write(elm.GetAttribute("id") + ": ");
-                var y = elm.InnerXml;
+                var result = new Result();
                 XmlNodeList titleList = elm.GetElementsByTagName("dc:title");
                 
-                Console.WriteLine(titleList[0].InnerText);
-            }
+                result.id = elm.GetAttribute("id");
+                result.partenID = elm.GetAttribute("parentID");
+                result.ContainerRes = "Container";
+                result.type = titleList[0].InnerText;
 
-            return xml;
+                tmpList.Add(result);
+                
+            }
+            return tmpList;
+        }
+
+        public List<Result> itemReader(string xml)
+        {
+            var xmlDocument = new XmlDocument();
+            //xmlDocument.Load("SomeXML.xml");
+            xmlDocument.LoadXml(xml);
+
+            var tmpList = new List<Result>();
+
+            XmlNodeList nodeList = xmlDocument.GetElementsByTagName("item");
+
+            foreach (XmlElement elm in nodeList)
+            {
+                var result = new Result();
+                XmlNodeList titleList = elm.GetElementsByTagName("title");
+
+                result.id = elm.GetAttribute("id");
+                result.partenID = elm.GetAttribute("parentID");
+                result.ContainerRes = "item";
+                result.type = titleList[0].InnerText;
+
+                tmpList.Add(result);
+            }
+            return tmpList;
         }
     }
+
+    public class Result
+    {
+        public string ContainerRes { get; set; }
+        public string id { get; set; }
+        public string type { get; set; }
+        public string partenID { get; set; }
+    }
 }
+
+

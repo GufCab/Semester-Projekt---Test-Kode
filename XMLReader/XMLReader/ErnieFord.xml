@@ -1,0 +1,200 @@
+<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sec="http://www.sec.co.kr/">
+  <item id="/external/audio/albums/427/40544" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Sixteen Tons</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>1</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6516979" duration="0:02:38.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40544.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40545" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>The Shot Gun Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>2</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6517946" duration="0:02:38.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40545.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40546" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Mr. and Mississippi</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>3</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="7766906" duration="0:03:09.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40546.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40547" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Catfish Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>4</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5856501" duration="0:02:21.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40547.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40548" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Tennessee Border</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>5</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6088823" duration="0:02:27.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40548.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40549" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Tailor Made Woman</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>6</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5835384" duration="0:02:21.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40549.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40550" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Smokey Mountain Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>7</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6592829" duration="0:02:40.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40550.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40551" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Anticipation Blues</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>8</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5429305" duration="0:02:10.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40551.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40552" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Kissin' Bug Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>9</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5269945" duration="0:02:06.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40552.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40553" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Stack-O-Lee</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>10</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6997939" duration="0:02:50.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40553.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40554" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Mule Train</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>11</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="7658418" duration="0:03:06.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40554.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40555" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>I'm Hog-Tied Over You</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>12</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6450749" duration="0:02:36.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40555.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40556" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Oceans of Tears</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>13</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6588023" duration="0:02:39.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40556.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40557" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Blackberry Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>14</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6202105" duration="0:02:30.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40557.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40558" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>I Don't Know</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>15</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6431540" duration="0:02:36.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40558.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40559" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Hey, Mr. Cotton Picker</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>16</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5914110" duration="0:02:23.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40559.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40560" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>I'll Never Be Free</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>17</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="6514106" duration="0:02:38.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40560.mp3</res>
+  </item>
+  <item id="/external/audio/albums/427/40561" parentID="/external/audio/albums/427" restricted="0">
+    <dc:title>Rock City Boogie</dc:title>
+    <dc:creator>Tennessee Ernie Ford</dc:creator>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <upnp:album>16 Tons of Boogie:  The Best of Tennessee Ernie Ford</upnp:album>
+    <upnp:albumArtURI xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" dlna:profileID="JPEG_TN">http://192.168.43.1:57645/external/audio/albums/427.jpg</upnp:albumArtURI>
+    <upnp:originalTrackNumber>18</upnp:originalTrackNumber>
+    <upnp:artist>Tennessee Ernie Ford</upnp:artist>
+    <upnp:artist role="AlbumArtist">Tennessee Ernie Ford</upnp:artist>
+    <res protocolInfo="http-get:*:audio/mpeg:DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0" size="5475384" duration="0:02:12.000" bitrate="40000">http://192.168.43.1:57645/external/audio/media/40561.mp3</res>
+  </item>
+</DIDL-Lite>

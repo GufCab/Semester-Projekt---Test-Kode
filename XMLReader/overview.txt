@@ -1,5 +1,6 @@
-XMLWriter()
+﻿XMLWriter() pi
 - får et track og laver det om til xml
+- 
 
 XMLReader PC:
 - læser det xml den modtager fra browse()

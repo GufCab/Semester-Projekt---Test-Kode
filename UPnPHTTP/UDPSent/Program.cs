@@ -10,6 +10,9 @@ namespace UDPSend
 {
     class Program
     {
+        private static UdpClient cli;
+        private static IPAddress ip = IPAddress.Parse("239.255.255.250");
+
         static void Main(string[] args)
         {
             XMLWriterPi writer = new XMLWriterPi();
@@ -25,6 +28,14 @@ namespace UDPSend
 
             Console.WriteLine("Press ENTER to start sending messages");
             Console.ReadLine();
+            cli = new UdpClient();
+
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1900);
+
+
+            cli.Client.Bind(ipep);
+
+            cli.JoinMulticastGroup(ip);
 
             string i = "M-SEARCH * HTTP/1.1\nHOST: 239.255.255.250:1900\nST:urn:schemas-upnp-org:device:MediaRenderer:1\nMAN:\"ssdp:discover\"\nMX: 2\r\n";
             StringBuilder stringBuilder = new StringBuilder(i);
@@ -37,7 +48,16 @@ namespace UDPSend
             udpclient.Send(buffer, buffer.Length, remoteep);
             Console.WriteLine("Sent " + i);
 
-            Console.WriteLine("All Done! Press ENTER to quit.");
+            //Console.WriteLine("All Done! Press ENTER to quit.");
+
+            
+
+            while (true)
+            {
+                Byte[] data = cli.Receive(ref ipep);
+                string strData = Encoding.UTF8.GetString(data);
+                Console.WriteLine(strData);
+            }
             Console.ReadLine();
         }
     }

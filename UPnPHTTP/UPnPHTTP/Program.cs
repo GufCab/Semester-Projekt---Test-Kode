@@ -30,11 +30,14 @@ namespace UPnPHTTP
 
             cli.JoinMulticastGroup(ip);
 
+            StreamWriter streamWriter = new StreamWriter("Received.xml");
+
             while (true)
             {
                 Byte[] data = cli.Receive(ref ipep);
                 string strData = Encoding.UTF8.GetString(data);
                 Console.WriteLine(strData);
+                streamWriter.WriteLine(strData);
             }
 
             /*

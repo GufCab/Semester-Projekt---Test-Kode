@@ -65,6 +65,8 @@ namespace XMLReader
                 Console.WriteLine(result.ContainerRes + " " + result.type + " " + result.id + " " + result.partenID);
             }
 
+            writer.testXMLConverter();
+
             Console.Read();
         }
     }

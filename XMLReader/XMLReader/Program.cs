@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.IO;
-using Playback;
+using XMLReader;
+using PlaybackCtrl;
+using XMLHandler;
 
-namespace XMLReader
+namespace Main
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Track t = new Track();
-            t.Path = "Music/Van Halen/";
+          
+
             
-            //finds my ip address
             IPHostEntry host;
             string localIP = "?";
             host = Dns.GetHostEntry(Dns.GetHostName());
@@ -29,6 +27,8 @@ namespace XMLReader
                 }
             }
 
+            Track t = new Track();
+            t.Path = "Music/Van Halen/";
             t.DeviceIP = localIP;
             t.FileName = "Jump.mp3";
             t.Protocol = "rtsp://";
@@ -45,29 +45,20 @@ namespace XMLReader
             trackList.Add(t);
 
             XMLWriterPi writer = new XMLWriterPi();
-            //writer.testXMLConverter();
-            string s = writer.XMLConverter(trackList);
-            //Console.WriteLine(s);
 
-            var doc = new XmlDocument();
-            //doc.Load("CreatedXML.xml");
-            doc.Load("SomeXML.xml");
+            writer.ConvertITrackToXML(trackList);
+            List<ITrack> result = new List<ITrack>();
+            XMLReader1 reader = new XMLReader1();
+            result = reader.itemReader("");
 
-            var reader = new XMLReader();
-            List<Result> list = reader.containerReader(doc.OuterXml);
+            Console.WriteLine(result[0].Album);
+            Console.WriteLine(result[0].Artist);
+            Console.WriteLine(result[0].Title);
 
-            var doc1 = new XmlDocument();
-            doc1.Load("CreatedXML.xml");
-            list.AddRange(reader.itemReader(doc1.OuterXml));
-
-            foreach (Result result in list)
-            {
-                Console.WriteLine(result.ContainerRes + " " + result.type + " " + result.id + " " + result.partenID);
-            }
-
-            writer.testXMLConverter();
 
             Console.Read();
         }
+        
+
     }
 }

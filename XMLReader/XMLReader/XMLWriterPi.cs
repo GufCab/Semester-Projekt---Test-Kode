@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Playback;
 using System.Xml;
 using System.IO;
+using PlaybackCtrl;
 
-namespace XMLReader
+namespace XMLHandler
 {
-    class XMLWriterPi
+    public class XMLWriterPi
     {
         public string testXMLConverter()
         {
@@ -31,7 +31,7 @@ namespace XMLReader
             item.AppendChild(title);
             title.InnerText = "Penny Lover";
 
-            XmlElement Class = doc.CreateElement("upnp:class");
+            XmlElement Class = doc.CreateElement("upnp", "class");
             item.AppendChild(Class);
             Class.InnerText = "object.item.audioItem.musicTrack";
 
@@ -69,7 +69,7 @@ namespace XMLReader
             return doc.OuterXml;
         }
 
-        public string XMLConverter(List<ITrack> tracks)
+        public string ConvertITrackToXML(List<ITrack> tracks)
         {
             XmlDocument doc = new XmlDocument();
 
@@ -91,11 +91,11 @@ namespace XMLReader
                 item.SetAttribute("id", "1"); //hvad skal id være? skal den tilføjes til track?
                 item.SetAttribute("parentID", "0");  //hvor får den parentID fra?
 
-                XmlElement title = doc.CreateElement("dc:title");
+                XmlElement title = doc.CreateElement("dc", "title", "http://purl.org/dc/elements/1.1/");
                 item.AppendChild(title);
                 title.InnerText = track.Title;
 
-                XmlElement Class = doc.CreateElement("upnp:class");
+                XmlElement Class = doc.CreateElement("upnp:class", "urn:schemas-upnp-org:metadata-1-0/upnp/");
                 item.AppendChild(Class);
                 Class.InnerText = "object.item.audioItem.musicTrack";
 
@@ -125,5 +125,26 @@ namespace XMLReader
             
             return doc.OuterXml;
         }
+        /*
+        public string ConvertIElementToXML(List<Element> elements)
+        {
+            XmlDocument doc = new XmlDocument();
+            XmlElement root = doc.CreateElement("DIDL-lite");
+            doc.AppendChild(root);
+
+            foreach (Element element in elements)
+            {
+                
+            }
+
+            return doc.OuterXml;
+        }*/
+    }
+
+    class Element
+    {
+        private string _title { set; get; }
+        private string _creator { set; get; } 
+        private string _upnpClass { set; get; }
     }
 }

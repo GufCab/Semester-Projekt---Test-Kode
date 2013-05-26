@@ -1,0 +1,109 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:containers="clr-namespace:Containers;assembly=Containers" mc:Ignorable="d" x:Class="playerlayout.MainWindow"
+        Title="MainWindow" Height="350" Width="525"
+        Background="{DynamicResource appBackground}"
+        WindowStyle="ThreeDBorderWindow"
+        BorderBrush="SteelBlue" Closing="Window_Closing"
+        >
+    <Window.DataContext>
+        <containers:MusicIndexToGui/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="75"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="SkyBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="25" Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition MinHeight="20" Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="Hipiuden hvid.png"></Image>
+            <TextBox Grid.Row="1" Text="Søgefelt"/>
+            <Label Grid.Row="2" Content="Volume" Margin="0,0,0,-5"/>
+            <Slider Grid.Row="3" x:Name="sliderVol" VerticalAlignment="Bottom" Maximum="100" Minimum="70" PreviewMouseLeftButtonUp="SliderVol_OnPreviewMouseLeftButtonUp"/>
+            
+            <Button Grid.Row="5" Content="[PI] Send File" Click="SendFile_OnClick"/>
+            <Button Grid.Row="6" Content="Settings" Click="Settings_OnClick" Margin="0,0,0,0"/>
+            <Button Grid.Row="7" Content="Sync" Click="SyncButtonClick"/>
+            <Button Grid.Row="8" Content="Rescan" x:Name="btnRescan" Click="BtnRescan_OnClick" Height="20" VerticalAlignment="Bottom"></Button>
+        </Grid>
+        
+        <Grid Grid.Column="1">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" MinHeight="220"/>
+                <RowDefinition Height="Auto" MinHeight="20"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Musikindex"/>
+            <DataGrid Grid.Row="1" x:Name="dgMusikindex" MouseDoubleClick="DgMusikindex_OnMouseDoubleClick"/>
+        </Grid>
+        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment ="Center" Background="Gray" Opacity=".1"/>
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="20"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.ColumnSpan="2" Content="Afspilningsliste"/>
+            </Grid>
+            <DataGrid Grid.Row="1" x:Name="dgPlayQueue" MouseDoubleClick="DgPlayQueue_OnMouseDoubleClick"></DataGrid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <!--<ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>-->
+                </Grid.ColumnDefinitions>
+                <!--<TextBlock Grid.Column="0" VerticalAlignment="Center">00:00</TextBlock>-->
+                <Slider x:Name="sliderTime" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="SliderTime_OnPreviewMouseLeftButtonUp" Width="200"/>
+                <!--<TextBlock Grid.Column="2" VerticalAlignment="Center">00:00</TextBlock>-->
+                
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="btnPrevious" MaxHeight="30" Click="BtnPrevious_OnClick">
+                    <Image Source="Backward.png"/>
+                </Button>
+                <Button Grid.Column="2" MaxHeight="30" Click="Playbutton_OnClick" x:Name="playpause">
+                    <Image x:Name="pap" Source="play.png"/>
+                </Button>
+                <Button Grid.Column="1" x:Name="btnStop" MaxHeight="30" Click="BtnStop_OnClick"><Image Source="Stop.png"></Image></Button>
+                <Button Grid.Column="3" x:Name="btnNext" MaxHeight="30" Click="BtnNext_OnClick">
+                    <Image Source="Farward.png"/>
+                </Button>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>
